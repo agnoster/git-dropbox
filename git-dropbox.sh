@@ -28,7 +28,13 @@ if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
 fi
 
 
-PROJECT_DIR=`git rev-parse --show-toplevel`
+PROJECT_DIR=`git rev-parse --show-toplevel 2>/dev/null`
+
+if [ ! "$PROJECT_DIR" ]; then
+  echo "Run 'git dropbox' in a git repository to mirror it to $FOLDER/[repo-name].git/"
+  exit
+fi
+
 PROJECT_NAME=`basename "$PROJECT_DIR"`
 
 DROPBOX_REPO="$FOLDER/$PROJECT_NAME.git"
