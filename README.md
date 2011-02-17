@@ -10,7 +10,7 @@ How about this:
 
 To install:
 
-    curl -o /usr/local/bin/git-dropbox https://github.com/agnoster/git-dropbox/raw/master/git-dropbox
+    curl -o /usr/local/bin/git-dropbox https://github.com/agnoster/git-dropbox/raw/master/git-dropbox.sh
     chmod +x /usr/local/bin/git-dropbox
 
 Now, in any git project, run the following:
