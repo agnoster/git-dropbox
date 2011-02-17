@@ -44,4 +44,9 @@ if [ ! -d "$DROPBOX_REPO" ]; then
   (cd $DROPBOX_REPO; git init --bare)
 fi
 
+if [ ! -d "$DROPBOX_REPO" ]; then
+  echo "Could not create $DROPBOX_REPO. Check that you have permissions to create it."
+  exit 1
+fi
+
 git push "$DROPBOX_REPO" --mirror
