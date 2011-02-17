@@ -34,7 +34,7 @@ if [ ! "$PROJECT_DIR" ]; then
   exit
 fi
 
-DROPBOX_REPO=`git config --local dropbox.repo`
+DROPBOX_REPO=`git config --local dropbox.repo 2>/dev/null`
 if [ ! "$DROPBOX_REPO" ]; then
   PROJECT_NAME=`basename "$PROJECT_DIR"`
   DROPBOX_REPO="$FOLDER/$PROJECT_NAME.git"
