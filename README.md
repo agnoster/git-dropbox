@@ -6,15 +6,16 @@ How about this:
 
     git dropbox
 
+## Usage
+
 To install:
 
-    curl -O /usr/local/bin/git-dropbox https://github.com/agnoster/git-dropbox/raw/master/git-dropbox
-    # or, if you need to sudo:
-    sudo curl -O /usr/local/bin/git-dropbox https://github.com/agnoster/git-dropbox/raw/master/git-dropbox
+    curl -o /usr/local/bin/git-dropbox https://github.com/agnoster/git-dropbox/raw/master/git-dropbox
+    chmod +x /usr/local/bin/git-dropbox
 
 Now, in any git project, run the following:
 
-  git dropbox
+    git dropbox
 
 - If you haven't run it before, it will prompt you for a location to create git repos.
   - Default: `$HOME/Dropbox/git`
@@ -25,6 +26,8 @@ Now, in any git project, run the following:
 - Does a `git push $NEW_BARE_REPO --mirror`
 
 Simple. Now, whenever you do a `git dropbox` it will re-mirror to the same directory.
+
+## FAQ
 
 - Q: Why doesn't it just add a remote and let you push?
   - A: Coming. But right now I want it as simple as possible. `git dropbox` and you're done. Also, if you add it as a remote it ends up pushing tracking branches for itself when you mirror, which just seems weird.
