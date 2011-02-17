@@ -31,5 +31,9 @@ Simple. Now, whenever you do a `git dropbox` it will re-mirror to the same direc
 
 - Q: Why doesn't it just add a remote and let you push?
   - A: Coming. But right now I want it as simple as possible. `git dropbox` and you're done. Also, if you add it as a remote it ends up pushing tracking branches for itself when you mirror, which just seems weird.
+- Q: What if I want to push a single project to a different place? (Like maybe a toplevel directory for sharing?)
+  - A: First off: if you *are* sharing, I highly recommend you don't have multiple people push to one repo. Better to each have a dropbox repo and pull from each other when need be. But you can in fact set the location of the mirror bare repo with a simple config variable:
+
+    git config dropbox.repo /path/to/dropbox/repo
 
 [stackoverflow answer]: http://stackoverflow.com/questions/1960799/using-gitdropbox-together-effectively/1961515#1961515
