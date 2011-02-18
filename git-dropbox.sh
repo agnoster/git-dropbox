@@ -50,4 +50,6 @@ if [ ! -d "$DROPBOX_REPO" ]; then
   exit 1
 fi
 
-git push "$DROPBOX_REPO" --mirror
+REMOTE=${1-"dropbox"}
+git remote add $REMOTE --mirror "$DROPBOX_REPO" 2>/dev/null
+git push $REMOTE

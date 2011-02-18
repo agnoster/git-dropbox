@@ -17,7 +17,9 @@ To install (this may require sudo):
 
 Now, in any git project, run the following:
 
-    git dropbox
+    git dropbox [<remote_name>]
+
+(`<remote_name>` is optional, and defaults to `dropbox` - after running this once you can do `git push dropbox` if you prefer)
 
 - If you haven't run it before, it will prompt you for a location to create git repos.
   - Default: `$HOME/Dropbox/git`
@@ -25,7 +27,8 @@ Now, in any git project, run the following:
 - Creates that folder if it doesn't exist
 - Creates a new bare repo matching the name of your git project's directory
   - So, for `my_project`, the default location would be `$HOME/Dropbox/git/my_project.git`
-- Does a `git push $NEW_BARE_REPO --mirror`
+- Sets up a remote with `git remote add $REMOTE --mirror "$DROPBOX_REPO"` (default for `$REMOTE` is `dropbox`)
+- Does a `git push $REMOTE`
 
 Simple. Now, whenever you do a `git dropbox` it will re-mirror to the same directory.
 
