@@ -12,7 +12,7 @@ And your repo gets mirrored to a bare repo in your Dropbox! Sound like a good ti
 
 To install (this may require sudo):
 
-    curl -o /usr/local/bin/git-dropbox https://github.com/agnoster/git-dropbox/raw/master/git-dropbox.sh
+    curl -o /usr/local/bin/git-dropbox https://raw.github.com/agnoster/git-dropbox/master/git-dropbox.sh
     chmod +x /usr/local/bin/git-dropbox
 
 Now, in any git project, run the following:
