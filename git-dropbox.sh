@@ -1,4 +1,5 @@
 #!/bin/sh
+# See https://github.com/agnoster/git-dropbox for more information about this project.
 
 FOLDER=`git config dropbox.folder`
 
