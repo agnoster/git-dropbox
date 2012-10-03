@@ -1,5 +1,7 @@
 # git-dropbox
 
+> **STATUS: Stable** (as of 2012-08-03) — This isn't a terribly complicated project, and it seems relatively bug-free. No further improvements are currently planned, but issues filed will be responded to.
+
 A recent [stackoverflow answer] got me thinking: what's the easiest way to use Dropbox for your git repos?
 
 How about just typing this:
