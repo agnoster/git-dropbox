@@ -18,7 +18,7 @@ if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
     fi
   done
 
-  mkdir -p $FOLDER
+  mkdir -p "$FOLDER"
   if [ ! "$FOLDER" ]; then
     echo "$FOLDER does not exist. Check that you have permissions to create it."
     exit 1
