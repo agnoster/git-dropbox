@@ -42,8 +42,8 @@ if [ ! "$DROPBOX_REPO" ]; then
 fi
 
 if [ ! -d "$DROPBOX_REPO" ]; then
-  mkdir -p $DROPBOX_REPO
-  (cd $DROPBOX_REPO; git init --bare)
+  mkdir -p "$DROPBOX_REPO"
+  (cd "$DROPBOX_REPO"; git init --bare)
 fi
 
 if [ ! -d "$DROPBOX_REPO" ]; then
