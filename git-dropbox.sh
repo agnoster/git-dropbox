@@ -5,11 +5,20 @@ FOLDER=`git config dropbox.folder`
 
 if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
   FOLDER=""
+  echo "# git-dropbox: initial setup"
   # Running for the first time
   if [ -d "$HOME/Dropbox" ]; then
     DEFAULT="$HOME/Dropbox/git"
+  else
+    read -p "Where is your dropbox folder, relative to $HOME? " -e DROPBOX
+    if [ -d "$HOME/$DROPBOX" ]; then
+      DEFAULT="$HOME/$DROPBOX/git"
+    else
+      echo "'$HOME/$DROPBOX' could not be found. Make sure you have the right folder" \
+           "name and run git-dropbox again."
+      exit 1
+    fi
   fi
-  echo "# git-dropbox: initial setup"
   while [ ! "$FOLDER" ]; do
     read -p "Where should git repositories be saved? [$DEFAULT] " -e FOLDER
     if [ ! "$FOLDER" ]; then
