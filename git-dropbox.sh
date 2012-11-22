@@ -10,10 +10,10 @@ if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
     DEFAULT="$HOME/Dropbox/git"
   else
     read -p "Where is your dropbox folder, relative to $HOME? " -e DROPBOX
-    if [ -d $DROPBOX ]; then
-      DEFAULT="$DROPBOX/git"
+    if [ -d "$HOME/$DROPBOX" ]; then
+      DEFAULT="$HOME/$DROPBOX/git"
     else
-      echo "'$DROPBOX' could not be found. Make sure you have the right folder" \
+      echo "'$HOME/$DROPBOX' could not be found. Make sure you have the right folder" \
            "name and run git-dropbox again."
       exit 1
     fi
