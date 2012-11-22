@@ -15,7 +15,7 @@ if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
     else
       echo "'$DROPBOX' could not be found. Make sure you have the right folder" \
            "name and run git-dropbox again."
-      exit
+      exit 1
     fi
   fi
   echo "# git-dropbox: initial setup"
