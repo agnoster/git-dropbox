@@ -13,7 +13,7 @@ if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
     if [ -d $DROPBOX ]; then
       DEFAULT="$DROPBOX/git"
     else
-      echo "$DROPBOX could not be found. Make sure you have the right folder" \
+      echo "'$DROPBOX' could not be found. Make sure you have the right folder" \
            "name and run git-dropbox again."
       exit
     fi
