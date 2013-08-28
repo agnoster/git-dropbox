@@ -1,16 +1,17 @@
 #!/bin/sh
 # See https://github.com/agnoster/git-dropbox for more information about this project.
 
-FOLDER=`git config dropbox.folder`
+FOLDER=$(git config dropbox.folder)
 
-if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
+if [ ! "$FOLDER" ] || [ ! -d "$FOLDER" ]; then
   FOLDER=""
   echo "# git-dropbox: initial setup"
   # Running for the first time
   if [ -d "$HOME/Dropbox" ]; then
     DEFAULT="$HOME/Dropbox/git"
   else
-    read -p "Where is your dropbox folder, relative to $HOME? " -e DROPBOX
+    printf "Where is your dropbox folder, relative to $HOME? " 
+    read DROPBOX
     if [ -d "$HOME/$DROPBOX" ]; then
       DEFAULT="$HOME/$DROPBOX/git"
     else
@@ -20,7 +21,8 @@ if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
     fi
   fi
   while [ ! "$FOLDER" ]; do
-    read -p "Where should git repositories be saved? [$DEFAULT] " -e FOLDER
+    printf "Where should git repositories be saved? [$DEFAULT] "
+    read FOLDER
     if [ ! "$FOLDER" ]; then
       FOLDER="$DEFAULT"
       echo "Choosing default: $FOLDER"
@@ -38,15 +40,15 @@ if [ ! "$FOLDER" -o ! -d "$FOLDER" ]; then
 fi
 
 
-PROJECT_DIR=`git rev-parse --show-toplevel 2>/dev/null`
+PROJECT_DIR=$(git rev-parse --show-toplevel 2>/dev/null)
 if [ ! "$PROJECT_DIR" ]; then
   echo "Run 'git dropbox' in a git repository to mirror it to $FOLDER/[repo-name].git/"
   exit
 fi
 
-DROPBOX_REPO=`git config --local dropbox.repo 2>/dev/null`
+DROPBOX_REPO=$(git config --local dropbox.repo 2>/dev/null)
 if [ ! "$DROPBOX_REPO" ]; then
-  PROJECT_NAME=`basename "$PROJECT_DIR"`
+  PROJECT_NAME=$(basename "$PROJECT_DIR")
   DROPBOX_REPO="$FOLDER/$PROJECT_NAME.git"
 fi
 

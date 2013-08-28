@@ -1,10 +1,12 @@
-PREFIX=/usr/local/bin
+PREFIX=/usr/local
+bindir=$(PREFIX)/bin
+
 
 install: uninstall
-	install git-dropbox.sh $(PREFIX)/git-dropbox
+	install git-dropbox.sh $(bindir)/git-dropbox
 
 link: uninstall
-	ln -sf $(PWD)/git-dropbox.sh $(PREFIX)/git-dropbox
+	ln -sf $(PWD)/git-dropbox.sh $(bindir)/git-dropbox
 
 uninstall:
 	rm -f $(PREFIX)/git-dropbox
