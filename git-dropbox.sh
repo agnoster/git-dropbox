@@ -68,7 +68,7 @@ function usage()
     echo ""
     echo "./git-dropbox.sh"
     echo "  -h --help"
-    echo "  --remote-add"
+    echo "  --remote-add -- git remote add origin $DROPBOX_REPO"
     echo ""
 }
 
