@@ -10,7 +10,7 @@ if [ ! "$FOLDER" ] || [ ! -d "$FOLDER" ]; then
   if [ -d "$HOME/Dropbox" ]; then
     DEFAULT="$HOME/Dropbox/git"
   else
-    printf "Where is your dropbox folder, relative to $HOME? " 
+    printf "Where is your dropbox folder, relative to $HOME? "
     read DROPBOX
     if [ -d "$HOME/$DROPBOX" ]; then
       DEFAULT="$HOME/$DROPBOX/git"
@@ -62,4 +62,39 @@ if [ ! -d "$DROPBOX_REPO" ]; then
   exit 1
 fi
 
+function usage()
+{
+    echo "dropbox.sh - simplifies setting up git with dropbox."
+    echo ""
+    echo "./git-dropbox.sh"
+    echo "  -h --help"
+    echo "  --remote-add -- git remote add origin $DROPBOX_REPO"
+    echo ""
+}
+
+RA=false
+while [ "$1" != "" ]; do
+    PARAM=`echo $1 | awk -F= '{print $1}'`
+    VALUE=`echo $1 | awk -F= '{print $2}'`
+    case $PARAM in
+        -h | --help)
+            usage
+            exit
+            ;;
+        --remote-add)
+            RA=true
+            ;;
+        *)
+            echo "ERROR: unknown parameter \"$PARAM\""
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
+
 git push "$DROPBOX_REPO" --mirror
+
+if $RA ; then
+  git remote add origin "$DROPBOX_REPO"
+fi
